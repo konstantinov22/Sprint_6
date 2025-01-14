@@ -1,4 +1,5 @@
 import com.example.Feline;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -7,37 +8,32 @@ import static org.junit.Assert.assertEquals;
 
 public class FelineTest {
 
+    private Feline feline;
+
+    @Before
+    public void setUp() {
+        feline = new Feline(); // Инициализация объекта Feline перед каждым тестом
+    }
+
     @Test
     public void eatMeatTest() throws Exception {
-
-        Feline feline = new Feline();
-        assertEquals(List.of("Животные", "Птицы", "Рыба"),feline.eatMeat());
-
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
     }
 
     @Test
-    public void getFamilyTest(){
-
-        Feline feline = new Feline();
-        assertEquals("Кошачьи",feline.getFamily());
-
+    public void getFamilyTest() {
+        assertEquals("Кошачьи", feline.getFamily());
     }
 
     @Test
-    public void getKitensTest(){
-
-        Feline feline = new Feline();
-        assertEquals(feline.getKittens(1),feline.getKittens());
-
+    public void getKittensTest() {
+        int expectedKittens = 1; // Ожидаемое значение по умолчанию
+        assertEquals(expectedKittens, feline.getKittens());
     }
 
     @Test
-    public  void  getKitencCountTest(){
-
+    public void getKittenCountTest() {
         int kittenCount = 1;
-        Feline feline = new Feline();
-        assertEquals(kittenCount,feline.getKittens(kittenCount));
-
+        assertEquals(kittenCount, feline.getKittens(kittenCount));
     }
-
 }

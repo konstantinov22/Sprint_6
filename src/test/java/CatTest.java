@@ -20,21 +20,16 @@ public class CatTest extends TestCase {
         cat = new Cat(feline);
     }
 
-
     @Test
-    public void getSoundTest(){
-
-        Cat cat = new Cat(feline);
-        assertEquals("Мяу",cat.getSound());
-
+    public void getSoundTest() {
+        String expectedSound = "Мяу";
+        String actualSound = cat.getSound();
+        assertEquals("Ожидаемый звук кошки не совпадает с фактическим", expectedSound, actualSound);
     }
 
     @Test
     public void getFoodTest() throws Exception {
-
         cat.getFood();
         Mockito.verify(feline).eatMeat();
-
     }
-
 }

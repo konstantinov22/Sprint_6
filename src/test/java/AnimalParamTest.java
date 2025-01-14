@@ -16,13 +16,11 @@ public class AnimalParamTest {
         this.expectedFood = expectedFood;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: тип животного = {0}, ожидаемая еда = {1}")
     public static Object[][] animalFoodGroup() {
         return new Object[][]{
-                {"Травоядное",
-                        List.of("Трава", "Различные растения")},
-                {"Хищник",
-                        List.of("Животные", "Птицы", "Рыба")},
+                {"Травоядное", List.of("Трава", "Различные растения")},
+                {"Хищник", List.of("Животные", "Птицы", "Рыба")},
         };
     }
 
